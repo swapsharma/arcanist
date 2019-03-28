@@ -426,6 +426,10 @@ EOTEXT
         'help' => pht(
           'After creating a diff or revision, open it in a web browser.'),
       ),
+      'testPlan' => array(
+	'param' => 'testPlan',
+	'help' => pht('Add testPlan to diff message'),
+      ),
       '*' => 'paths',
       'head' => array(
         'param' => 'commit',
@@ -1983,6 +1987,9 @@ EOTEXT
     }
     if ($this->getArgument('cc')) {
       $faux_message[] = pht('CC: %s', $this->getArgument('cc'));
+    }
+    if ($this->getArgument('testPlan')) {
+      $faux_message[] = pht('TEST PLAN: %s', $this->getArgument('testPlan'));
     }
 
     // See T12069. After T10312, the first line of a message is always parsed
